@@ -121,5 +121,6 @@
   	<module>api</module>
   	<module>provider</module>
   	<module>consumer</module>
+  	<module>httpclient</module>
   </modules>
 </project>

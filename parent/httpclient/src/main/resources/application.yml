@@ -1,0 +1,11 @@
+server: 
+  port: 80
+  servlet: 
+    context-path: /
+http: 
+  maxTotal: 100
+  defaultMaxPerRoute: 20
+  connectionTimeout: 1000
+  connectionRequestTimeout: 500
+  socketTimeout: 10000
+  validateAfterInactivity: 10

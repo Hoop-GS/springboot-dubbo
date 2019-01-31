@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.gs.springboot.dubbo</groupId>
+    <artifactId>parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  
+  <artifactId>httpclient</artifactId>
+  <name>httpclient</name>
+  <version>${project.version}</version>
+  <packaging>jar</packaging>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <dependencies>
+  	<!-- spring boot starter -->
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-test</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.projectlombok</groupId>
+  		<artifactId>lombok</artifactId>
+  	</dependency>
+  	
+  	<!-- spring boot mvc -->
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-web</artifactId>
+  	</dependency>
+  
+  	<!-- httpclient -->
+  	<dependency>
+  		<groupId>org.apache.httpcomponents</groupId>
+  		<artifactId>httpclient</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.httpcomponents</groupId>
+  		<artifactId>httpcore</artifactId>
+  	</dependency>
+  	
+  	<!-- common -->
+  	<dependency>
+  		<groupId>org.apache.commons</groupId>
+  		<artifactId>commons-lang3</artifactId>
+  	</dependency>
+  	
+  	<!-- fastjson -->
+  	<dependency>
+  		<groupId>com.alibaba</groupId>
+  		<artifactId>fastjson</artifactId>
+  		<version>1.2.54</version>
+  	</dependency>
+  </dependencies>
+  
+</project>
