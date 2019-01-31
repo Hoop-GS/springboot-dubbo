@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: dubbo-spring-boot-provider
+dubbo:
+  application:
+    name: dubbo-spring-boot-provider
+    qos-enable: false
+  registry:
+    address: zookeeper://localhost:2181
+    protocol: 
+      name: dubbo
+      port: 20880
+      server: netty4
+    provider:
+      delay: -1
+      timeout: 20000
+      retries: 0
+    

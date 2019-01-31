@@ -1,0 +1,13 @@
+spring:
+  application: 
+    name: dubbo-spring-boot-consumer
+dubbo:
+  application:
+    name: dubbo-spring-boot-consumer
+  registry:
+    address: zookeeper://localhost:2181
+    protocol: 
+      name: dubbo
+      port: 20880
+  consumer: 
+    timeout: 20000
