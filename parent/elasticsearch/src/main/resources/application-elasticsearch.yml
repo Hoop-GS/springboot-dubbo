@@ -1,0 +1,9 @@
+elasticsearch: 
+  server: 
+    ip: 127.0.0.1
+    port: 9300
+  cluster: 
+    name: es-temp
+  client: 
+    transport: 
+      sniff: true
