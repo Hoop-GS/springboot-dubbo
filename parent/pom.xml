@@ -122,5 +122,6 @@
   	<module>provider</module>
   	<module>consumer</module>
   	<module>httpclient</module>
+  	<module>elasticsearch</module>
   </modules>
 </project>
