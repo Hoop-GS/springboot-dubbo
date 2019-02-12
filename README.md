@@ -16,3 +16,7 @@ dubbo示例，主要包括了api、provider、consumer三个工程，注册中�
 # spring-boot
 spring-boot(SpringBootApplication)启动类默认自动扫描同包或子包路径，如果是其他包或顶级包，需用注解@ComponentScan显示配置扫描路径  
 spring-boot-test，在做单元测试的时候，需注意注解@SpringBootTest配置相应的bean class
+# elasticsearch
+* elasticsearch: 5.6.11
+* transport: 5.6.11  
+>elasticsearch工程并没有使用spring-data-elasticsearch包依赖，而是直接使用的elasticsearch原生api。elasticsearch文档通过CURL方式创建、变更字段、迁移扩容、变更别名，以及变更字段分词策略等。如果是使用的spring-data-elasticsearch包依赖，可通过spring boot注解方式，定义client连接属性，以及es model实体属性。
