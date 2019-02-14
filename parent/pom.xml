@@ -123,5 +123,6 @@
   	<module>consumer</module>
   	<module>httpclient</module>
   	<module>elasticsearch</module>
+  	<module>datasource</module>
   </modules>
 </project>
