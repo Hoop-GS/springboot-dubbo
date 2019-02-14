@@ -20,3 +20,7 @@ spring-boot-test，在做单元测试的时候，需注意注解@SpringBootTest�
 * elasticsearch: 5.6.11
 * transport: 5.6.11  
 >elasticsearch工程并没有使用spring-data-elasticsearch包依赖，而是直接使用的elasticsearch原生api。elasticsearch文档通过CURL方式创建、变更字段、迁移扩容、变更别名，以及变更字段分词策略等。如果是使用的spring-data-elasticsearch包依赖，可通过spring boot注解方式，定义client连接属性，以及es model实体属性。
+# datasource
+* mybatis.spring.boot.start: 1.3.2
+* druid: 1.1.10
+>尝试用spring-boot简单集成mysql+druid，以后会扩展库读写分离
