@@ -4,6 +4,7 @@
  */ 
 package com.gs.spring.boot.httpclient;
 
+import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -90,6 +91,8 @@ public class HttpClient {
 		builder.setConnectTimeout( connectionTimeout )
 			.setConnectionRequestTimeout( connectionRequestTimeout )
 			.setSocketTimeout( socketTimeout );
+		HttpHost proxy = new HttpHost( "200.54.194.10", 53281, "http" );
+		builder.setProxy( proxy );
 		return builder;
 	}
 	

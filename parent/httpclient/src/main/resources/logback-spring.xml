@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration scan="false" scanPeriod="60 seconds" debug="false">
+	<property name="log.appName" value="httpclient"/>
+	<property name="log.logdir" value="/logs/dubbo/"/>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+        	<pattern><![CDATA[%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n]]></pattern>       	
+        </layout>
+    </appender>
+    <appender name="fileInfo" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<filter class="ch.qos.logback.classic.filter.LevelFilter">
+    		<level>ERROR</level>
+    		<onMatch>DENY</onMatch>
+    		<onMismatch>ACCEPT</onMismatch>
+    	</filter>
+    	<file>${log.logdir}/${log.appName}.info.log</file>
+    	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+    		<FileNamePattern>${log.logdir}/${log.appName}.info.%d{yyyy-MM-dd}.log</FileNamePattern>
+    		<maxHistory>90</maxHistory>
+    	</rollingPolicy>
+    	<encoder>
+    		<charset>UTF-8</charset>
+    		<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} %line - %msg%n</pattern>
+    	</encoder>
+    </appender>
+    <appender name="fileError" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+    		<level>Error</level>
+    	</filter>
+    	<file>${log.logdir}/${log.appName}.error.log</file>
+    	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+    		<FileNamePattern>${log.logdir}/${log.appName}.error.%d{yyyy-MM-dd}.log</FileNamePattern>
+    		<maxHistory>90</maxHistory>
+    	</rollingPolicy>
+    	<encoder>
+    		<charset>UTF-8</charset>
+    		<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} %line - %msg%n</pattern>
+    	</encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="console"/>
+        <appender-ref ref="fileInfo"/>
+        <appender-ref ref="fileError"/>
+    </root>
+</configuration>

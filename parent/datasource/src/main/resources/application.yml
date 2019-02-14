@@ -1,0 +1,26 @@
+Server: 
+  port: 80
+  servlet: 
+    context-path: /
+druid: 
+  datasource: 
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: 
+    driverClassName: com.mysql.jdbc.Driver
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    validationQuery: select 1
+    maxWaitThreadCount: 50
+    keepAlive: true
+    initialSize: 5
+    minIdle: 5
+    maxActive: 100
+    maxWait: 10000
+    poolPreparedStatements: false
+    maxPoolPreparedStatementPerConnectionSize: 0
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+mybatis: 
+  mapperLocaltions: classpath*:/mybatis/*.xml

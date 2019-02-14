@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gs.springboot.dubbo.datasource.mapper.UserMapper">
+	
+	<sql id="userColumns">
+		<![CDATA[
+			FID			as			id,
+			FNAME		as			name,
+			FSEX		as			sex,
+			FAGE		as			age
+		]]>
+	</sql>
+	
+	<select id="getById" resultType="com.gs.springboot.dubbo.datasource.model.UserModel">
+		SELECT <include refid="userColumns" />
+		FROM T_USER
+		WHERE FID = #{id}
+	</select>
+	
+	<select id="getByName" resultType="com.gs.springboot.dubbo.datasource.model.UserModel">
+		SELECT <include refid="userColumns" />
+		FROM T_USER
+		WHERE FNAME = #{name}
+	</select>
+	
+	<insert id="addUser" keyProperty="id" useGeneratedKeys="true" parameterType="com.gs.springboot.dubbo.datasource.model.UserModel">
+		INSERT IGNORE INTO T_USER(FNAME,FSEX,FAGE) VALUES(#{model.name},#{model.sex},#{model.age});
+	</insert>
+	
+</mapper>
