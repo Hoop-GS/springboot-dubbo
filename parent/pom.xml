@@ -124,5 +124,6 @@
   	<module>httpclient</module>
   	<module>elasticsearch</module>
   	<module>datasource</module>
+  	<module>rocketmq</module>
   </modules>
 </project>
