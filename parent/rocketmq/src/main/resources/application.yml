@@ -2,3 +2,13 @@ server:
   port: 80
   servlet: 
     context-path: /
+rocketmq: 
+  namesrvAddr: 127.0.0.1:9876
+  defaultMQProducer: 
+    producerGroup: defaultProducerGroup
+    retryTimesWhenSendFailed: 0 #同步发送失败的话，rocketmq内部重试0次，默认2次
+    retryTimesWhenSendAsyncFailed: 0 #异步发送失败的话，rocketmq内部重试0次，默认2次
+  defaultMQPushConsumer:
+    consumerGroup: defaultConsumerGroup
+    
+    
