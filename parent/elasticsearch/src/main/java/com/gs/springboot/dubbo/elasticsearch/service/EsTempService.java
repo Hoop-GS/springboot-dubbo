@@ -10,6 +10,7 @@ import java.util.List;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,7 +60,7 @@ public class EsTempService {
 	public EsPage searchByPage( EsTempParam param ) {
 		int pageNo = param.getStart() / param.getLength();
 		int pageSize = param.getLength();
-		EsPage page = esManage.searchByPage( INDEX_NAME, TYPE_NAME, generateQueryBuilderByParam( param ), fieldAscList, fieldDescList, pageSize, pageNo );
+		EsPage page = esManage.searchByPage( INDEX_NAME, TYPE_NAME, generateQueryBuilderByParam( param ), fieldAscList, fieldDescList, null, pageSize, pageNo );
 		return page;
 	}
 	
@@ -68,5 +69,13 @@ public class EsTempService {
 		queryBuilder.must( EsCommonQueryBuilder.mustMatch( "name", param.getName() ) );
 		queryBuilder.must( EsCommonQueryBuilder.mustTerm( "sex", param.getName() ) );
 		return queryBuilder;
+	}
+	
+	public HighlightBuilder generateHighlightBuilder( String tags, String fieldName ) {
+		HighlightBuilder highlightBuilder = new HighlightBuilder();
+		highlightBuilder.preTags( String.format( "<%s>", tags ) );
+		highlightBuilder.postTags( String.format( "</%s>", tags ) );
+		highlightBuilder.field( fieldName );
+		return highlightBuilder;
 	}
 }

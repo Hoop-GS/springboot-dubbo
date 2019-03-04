@@ -22,6 +22,7 @@ import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.rest.RestStatus;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -129,7 +130,7 @@ public class EsManage {
 	 * @return
 	 */
 	public EsPage searchByPage( String index, String type, QueryBuilder queryBuilder, List<String> fieldAscList, List<String> fieldDescList, 
-			int pageSize, int pageNo ) {
+			HighlightBuilder highlightBuilder, int pageSize, int pageNo ) {
 		EsPage page = new EsPage( pageNo, pageSize );
 		if( StringUtils.isEmpty( index ) || StringUtils.isEmpty( type ) ) {
 			return page;
@@ -146,6 +147,9 @@ public class EsManage {
 			for( String field : fieldDescList ) {
 				searchReq.addSort( field, SortOrder.DESC );
 			}
+		}
+		if( null != highlightBuilder ) {
+			searchReq.highlighter( highlightBuilder );
 		}
 		SearchHits hits = searchReq.setFrom( pageNo * pageSize ).setSize( pageSize ).get().getHits();
 		page.setTotal( hits.getTotalHits() );
