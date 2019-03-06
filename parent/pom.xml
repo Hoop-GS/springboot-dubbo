@@ -125,5 +125,6 @@
   	<module>elasticsearch</module>
   	<module>datasource</module>
   	<module>rocketmq</module>
+  	<module>okhttp</module>
   </modules>
 </project>
