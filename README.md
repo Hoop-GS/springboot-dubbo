@@ -26,3 +26,5 @@ spring-boot-test，在做单元测试的时候，需注意注解@SpringBootTest�
 >尝试用spring-boot简单集成mysql+druid，以后会扩展库读写分离
 # rocketmq
 * rocketmq-client: 4.3.0
+# okhttp
+* okhttp: 3.13.1
